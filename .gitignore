@@ -1,0 +1,6 @@
+
+**/model/*
+**/output_dir/*
+*.npy.gz
+*.pkl.gz
+

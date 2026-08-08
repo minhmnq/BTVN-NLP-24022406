@@ -20,6 +20,19 @@ BucketByLength.length_axis = 0
 BucketByLength.length_keys = None
 BucketByLength.strict_pad_on_len = False
 
+# Parameters for debug_pipeline:
+# ==============================================================================
+debug_pipeline.debug = False
+debug_pipeline.log_prefix = None
+debug_pipeline.method = 'pow'
+
+# Parameters for EvalTask:
+# ==============================================================================
+EvalTask.export_prefix = None
+EvalTask.metric_names = None
+EvalTask.n_eval_batches = 1
+EvalTask.sample_batch = None
+
 # Parameters for FastGelu:
 # ==============================================================================
 # None.
@@ -28,56 +41,83 @@ BucketByLength.strict_pad_on_len = False
 # ==============================================================================
 FilterByLength.length_axis = 0
 FilterByLength.length_keys = None
+FilterByLength.min_length = 0
 
-# Parameters for LogSoftmax:
+# Parameters for LayerNorm:
 # ==============================================================================
-LogSoftmax.axis = -1
+LayerNorm.center = True
+LayerNorm.epsilon = 1e-06
 
-# Parameters for random_spans_helper:
+# Parameters for LSHSelfAttention:
 # ==============================================================================
-# None.
+LSHSelfAttention.bias = False
+LSHSelfAttention.chunk_len = 128
+LSHSelfAttention.max_length_for_buckets = None
+LSHSelfAttention.n_buckets = None
+LSHSelfAttention.n_chunks_after = 0
+LSHSelfAttention.n_chunks_before = 1
+LSHSelfAttention.n_hashes = 1
+LSHSelfAttention.n_parallel_heads = 1
+LSHSelfAttention.predict_drop_len = 256
+LSHSelfAttention.predict_mem_len = 2048
+LSHSelfAttention.share_qk = 'unused'
+LSHSelfAttention.use_python_loop = False
+LSHSelfAttention.use_reference_code = False
 
-# Parameters for layers.SelfAttention:
-# ==============================================================================
-layers.SelfAttention.attention_dropout = 0.0
-layers.SelfAttention.bias = False
-layers.SelfAttention.chunk_len = None
-layers.SelfAttention.masked = False
-layers.SelfAttention.n_chunks_after = 0
-layers.SelfAttention.n_chunks_before = 0
-layers.SelfAttention.n_parallel_heads = None
-layers.SelfAttention.predict_drop_len = None
-layers.SelfAttention.predict_mem_len = None
-layers.SelfAttention.share_qk = False
-layers.SelfAttention.use_python_loop = False
-layers.SelfAttention.use_reference_code = False
-
-# Parameters for SentencePieceVocabulary:
-# ==============================================================================
-# None.
-
-# Parameters for Serial:
+# Parameters for PositionalEncoding:
 # ==============================================================================
 # None.
+
+# Parameters for ReformerLM:
+# ==============================================================================
+ReformerLM.attention_chunk_size = 0
+ReformerLM.d_attention_key = 64
+ReformerLM.d_attention_value = 64
+ReformerLM.d_ff = 2048
+ReformerLM.d_model = 512
+ReformerLM.dropout = 0.1
+ReformerLM.ff_chunk_size = 0
+ReformerLM.ff_sparsity = 0
+ReformerLM.ff_use_sru = 0
+ReformerLM.loss_d_lowrank = 0
+ReformerLM.loss_sparsity = 0
+ReformerLM.loss_sparsity_prob = None
+ReformerLM.loss_sparsity_type = 'mult'
+ReformerLM.max_len = 2048
+ReformerLM.n_heads = 8
+ReformerLM.pos_axial_shape = ()
+ReformerLM.pos_d_axial_embs = None
+ReformerLM.pos_max_offset_to_add = 0
+ReformerLM.pos_start_from_zero_prob = 1.0
+ReformerLM.pos_type = None
 
 # Parameters for Shuffle:
 # ==============================================================================
 Shuffle.queue_size = 1024
 
-# Parameters for data.Tokenize:
+# Parameters for Tokenize:
 # ==============================================================================
-# None.
+Tokenize.keys = None
+Tokenize.n_reserved_ids = 0
+Tokenize.vocab_type = 'subword'
 
-# Parameters for tf_inputs.Tokenize:
+# Parameters for TrainTask:
 # ==============================================================================
-tf_inputs.Tokenize.keys = None
-tf_inputs.Tokenize.n_reserved_ids = 0
-tf_inputs.Tokenize.vocab_type = 'subword'
-
-# Parameters for Vocabulary:
-# ==============================================================================
-# None.
+TrainTask.export_prefix = None
+TrainTask.loss_name = None
+TrainTask.n_steps_per_checkpoint = 100
+TrainTask.n_steps_per_permanent_checkpoint = None
+TrainTask.sample_batch = None
 
 # Parameters for warmup_and_rsqrt_decay:
 # ==============================================================================
 # None.
+
+# Parameters for WeightedCategoryAccuracy:
+# ==============================================================================
+# None.
+
+# Parameters for WeightedCategoryCrossEntropy:
+# ==============================================================================
+WeightedCategoryCrossEntropy.cutoff = 0.0
+WeightedCategoryCrossEntropy.label_smoothing = None
